@@ -49,3 +49,15 @@ fun
   add-glasses(hat)
   
 end
+
+fun
+  choose-hat-or-visor(temp :: Number, has-visor :: Boolean) -> String:
+  
+ if has-visor and (temp > 95):
+    "visor"
+  
+  else:
+    choose-hat(temp)
+  end
+  
+end
