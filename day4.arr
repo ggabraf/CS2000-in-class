@@ -28,4 +28,5 @@ end
 fun
   Tshirt-cost-op(amt :: Number, letters :: String):
 
-  (amt * 4.00
+  (amt * 5.00) + (string-length(letters) * 0.10)
+end
