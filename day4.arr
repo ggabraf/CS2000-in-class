@@ -30,3 +30,4 @@ fun
 
   (amt * 5.00) + (string-length(letters) * 0.10)
 end
+
