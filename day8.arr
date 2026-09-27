@@ -1,4 +1,6 @@
-use context dcic2024
+use context url-file("https://raw.githubusercontent.com/neu-pdi/cs2000-public-resources/refs/heads/main/static/","cs2000.arr")
+include csv
+
 
 shuttle = table: month, riders
   row: "jan", 1123
@@ -77,3 +79,22 @@ morning-orders-sorted-inverse = order-by(morning-orders, "time", false)
 
 latest-morning-amount = morning-orders-sorted-inverse.row-n(0)["amount"]
  
+table1 = load-table:
+  Location :: String,
+  Subject :: String,
+  Date :: String
+  source: csv-table-url("https://raw.githubusercontent.com/neu-pdi/cs2000-public-resources/refs/heads/main/static/support/7-photos.csv", default-options)
+end
+
+fun forested(r :: Row) -> Boolean:
+  doc: "checks if subject  is forest"
+  if (r["Subject"] == "Forest"):
+    true
+  else:
+    false
+  end
+end
+
+forested-table = filter-with(table1, forested)
+
+forested-table-bydate = order-by(forested-table, "Date", false)
