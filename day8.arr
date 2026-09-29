@@ -80,9 +80,10 @@ morning-orders-sorted-inverse = order-by(morning-orders, "time", false)
 latest-morning-amount = morning-orders-sorted-inverse.row-n(0)["amount"]
  
 table1 = load-table:
-  Location :: String,
+ Location :: String,
   Subject :: String,
   Date :: String
+  
   source: csv-table-url("https://raw.githubusercontent.com/neu-pdi/cs2000-public-resources/refs/heads/main/static/support/7-photos.csv", default-options)
 end
 
